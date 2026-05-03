@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DGXLEB1TMQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DGXLEB1TMQ');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solver Space - Test Me</title>
+    <link rel="icon" type="image/png" href="Images/Botby-Solver-new.png" />
+    <link rel="apple-touch-icon" href="Images/Botby-Solver-new.png" />
+    <meta
+      name="description"
+      content="Practice math with questions based on your own mistakes. Our free Test Me tool builds targeted quizzes from your equation history to help you improve faster."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="math practice, review mistakes, targeted quiz, algebra review, practice test" />
+    <meta name="author" content="Solver Space" />
+    <meta name="google-site-verification" content="gnB32lRELapH9wbnaeBR0kkK2VdwFvR56YDamgLoBy8" />
+    <link rel="canonical" href="https://solverspace.netlify.app/test-me.html" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Solver Space" />
+    <meta property="og:title" content="Test Me - Solver Space" />
+    <meta
+      property="og:description"
+      content="Review and practice equations from your own history with focused question sets."
+    />
+    <meta property="og:url" content="https://solverspace.netlify.app/test-me.html" />
+    <meta property="og:image" content="https://solverspace.netlify.app/Images/Botby-Solver-new.png" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Test Me - Solver Space" />
+    <meta
+      name="twitter:description"
+      content="Train on equations you missed and improve with targeted practice."
+    />
+    <meta name="twitter:image" content="https://solverspace.netlify.app/Images/Botby-Solver-new.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="Menu/i18n.js"></script>
+  </head>
+  <body>
+    <div id="site-header-mount"></div>
+    <div class="bg-shape bg-shape-1" aria-hidden="true"></div>
+    <div class="bg-shape bg-shape-2" aria-hidden="true"></div>
+
+    <main class="app-shell">
+      <header class="hero">
+        <p class="eyebrow" data-i18n="testme.eyebrow">Page 4</p>
+        <h1 data-i18n="testme.h1">Test Me</h1>
+        <p class="subtitle" data-i18n="testme.subtitle">
+          Practice from your history, especially equations you missed.
+        </p>
+        <button id="testmeTutorialBtn" class="tool-tutorial-text-btn" type="button" data-i18n="testme.tutorialTitle">Tutorial?</button>
+      </header>
+
+      <section class="panel quiz-panel" aria-labelledby="testme-title">
+        <h2 id="testme-title" class="sr-only" data-i18n="testme.panelH2">History Practice</h2>
+
+        <div class="quiz-progress" aria-hidden="true">
+          <span id="testMeProgressFill" class="quiz-progress-fill"></span>
+        </div>
+
+        <h3 class="quiz-answer-title" data-i18n="testme.answerTitle">Test Me</h3>
+        <p id="testMeHint" class="help" data-i18n="testme.help">
+          Loading equations from your local practice history.
+        </p>
+
+        <div id="testMeQuestion" class="quiz-question">...</div>
+        <div id="testMeChoices" class="quiz-choices" aria-live="polite"></div>
+
+        <div class="button-row quiz-answer-row">
+          <button id="testMeBtn" class="btn quiz-answer-btn" type="button" data-i18n="quiz.answerBtn">
+            Answer
+          </button>
+        </div>
+
+        <p id="testMeFeedback" class="message" role="status" aria-live="polite"></p>
+      </section>
+
+    </main>
+
+    <div id="testmeTutorialModal" class="quiz-modal" role="dialog" aria-modal="true" aria-labelledby="testmeTutorialTitle" hidden>
+      <div class="quiz-modal-card tool-tutorial-modal-card">
+        <div class="tool-tutorial-head">
+          <h2 id="testmeTutorialTitle" data-i18n="testme.tutorialTitle">Tutorial?</h2>
+          <span class="tool-tutorial-badge" data-i18n="testme.tutorialBadge">History based</span>
+        </div>
+        <ol class="tool-tutorial-steps">
+          <li data-i18n="testme.tutorialStep1">First do some work in Solver, Quiz, Balance, or Premade Quiz so your history has equations in it.</li>
+          <li data-i18n="testme.tutorialStep2">Open Test Me and it will load questions based on your recent or missed practice.</li>
+          <li data-i18n="testme.tutorialStep3">Answer the multiple-choice questions and use the feedback to improve on weak areas.</li>
+        </ol>
+        <p class="tool-tutorial-tip" data-i18n="testme.tutorialTip">Best for: review practice based on your own mistakes.</p>
+        <div class="quiz-modal-actions">
+          <button id="testmeTutorialCloseBtn" class="btn" type="button" data-i18n="common.close">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="logic.js"></script>
+    <script src="recent-history.js"></script>
+    <script src="test-me.js"></script>
+    <div id="site-footer-mount"></div>
+    <script src="Menu/menu.js"></script>
+  </body>
+</html>

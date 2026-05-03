@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DGXLEB1TMQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DGXLEB1TMQ');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solver Space - Balance Scale</title>
+    <link rel="icon" type="image/png" href="Images/Botby-Solver-new.png" />
+    <link rel="apple-touch-icon" href="Images/Botby-Solver-new.png" />
+    <meta
+      name="description"
+      content="Learn algebra visually with our interactive balance scale equation solver. See exactly how both sides of an equation stay equal as you solve step by step."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="balance scale algebra, visual algebra, interactive equation, equation balance, visual math" />
+    <meta name="author" content="Solver Space" />
+    <meta name="google-site-verification" content="gnB32lRELapH9wbnaeBR0kkK2VdwFvR56YDamgLoBy8" />
+    <link rel="canonical" href="https://solverspace.netlify.app/balance.html" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Solver Space" />
+    <meta property="og:title" content="Balance Scale Solver - Solver Space" />
+    <meta
+      property="og:description"
+      content="Understand equations step by step with an interactive balance scale model."
+    />
+    <meta property="og:url" content="https://solverspace.netlify.app/balance.html" />
+    <meta property="og:image" content="https://solverspace.netlify.app/Images/Botby-Solver-new.png" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Balance Scale Solver - Solver Space" />
+    <meta
+      name="twitter:description"
+      content="Explore equation balance visually and build stronger algebra intuition."
+    />
+    <meta name="twitter:image" content="https://solverspace.netlify.app/Images/Botby-Solver-new.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="Menu/i18n.js"></script>
+  </head>
+  <body>
+    <div id="site-header-mount"></div>
+    <div class="bg-shape bg-shape-1" aria-hidden="true"></div>
+    <div class="bg-shape bg-shape-2" aria-hidden="true"></div>
+
+    <main class="app-shell">
+      <header class="hero">
+        <p class="eyebrow" data-i18n="balance.eyebrow">Visual Solver</p>
+        <h1 data-i18n="balance.h1">Balance Scale</h1>
+        <p class="subtitle" data-i18n="balance.subtitle">
+          See how equations stay balanced as you solve step by step.
+        </p>
+        <button id="balanceTutorialBtn" class="tool-tutorial-text-btn" type="button" data-i18n="balance.tutorialTitle">Tutorial?</button>
+      </header>
+
+      <section class="panel" aria-labelledby="balance-title">
+        <h2 id="balance-title" data-i18n="balance.panelH2">Solve with Balance Scale</h2>
+        <p class="help" data-i18n="balance.help">Example: 4x + 6 = 2x + 4</p>
+
+        <div class="input-row">
+          <label for="balEqInput" data-i18n="balance.label">Input equation</label>
+          <input
+            id="balEqInput"
+            type="text"
+            placeholder="4x + 6 = 2x + 4"
+            data-i18n-placeholder="balance.placeholder"
+            autocomplete="off"
+          />
+        </div>
+
+        <p id="balMessage" class="message" role="status" aria-live="polite"></p>
+
+        <div class="button-row">
+          <button id="balBtn" class="btn btn-primary" type="button" data-i18n="balance.solveBtn">Visualize</button>
+        </div>
+      </section>
+
+      <!-- Balance visual section -->
+      <section id="balViz" class="panel balance-viz-panel" aria-labelledby="balance-viz-title" hidden>
+        <h2 id="balance-viz-title" class="sr-only" data-i18n="balance.vizTitle">Balance visualization</h2>
+
+        <!-- Dark balance card -->
+        <div class="balance-card">
+          <div class="balance-eq-display" id="balEqDisplay"></div>
+          <div class="balance-scale-area">
+            <div class="balance-scale-wrap">
+              <!-- Pans + beam (rotates together for tilt) -->
+              <div class="balance-beam-row" id="balBeamRow">
+                <div class="balance-pan" id="balPanLeft">
+                  <div class="balance-blocks" id="balBlocksLeft"></div>
+                  <div id="balPanDropLeft" class="balance-pan-drop" data-side="left" data-i18n="balance.dropLeft">Drop left side</div>
+                  <div class="balance-plate"></div>
+                </div>
+                <div class="balance-beam-line"></div>
+                <div class="balance-pan" id="balPanRight">
+                  <div class="balance-blocks" id="balBlocksRight"></div>
+                  <div id="balPanDropRight" class="balance-pan-drop" data-side="right" data-i18n="balance.dropRight">Drop right side</div>
+                  <div class="balance-plate"></div>
+                </div>
+              </div>
+              <div class="balance-fulcrum"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step navigation -->
+        <div class="balance-step-nav">
+          <button id="balPrev" class="bal-nav-btn" aria-label="Previous step">&#8592;</button>
+          <span id="balStepLabel" class="balance-step-label"></span>
+          <button id="balNext" class="bal-nav-btn" aria-label="Next step">&#8594;</button>
+        </div>
+
+        <!-- Step description -->
+        <div id="balStepDesc" class="balance-step-desc"></div>
+
+        <!-- Click/Drop style answer bank -->
+        <div class="balance-choice-bank" aria-label="Answer tiles">
+          <div id="balChoiceGrid" class="balance-choice-grid"></div>
+          <button
+            id="balSubmitBtn"
+            class="balance-submit-btn"
+            type="button"
+            disabled
+            data-i18n="balance.answerBtn"
+          >
+            Answer
+          </button>
+          <p id="balChoiceFeedback" class="message" role="status" aria-live="polite"></p>
+        </div>
+
+        <!-- Final answer -->
+        <div id="balAnswer" class="balance-answer-display" hidden></div>
+      </section>
+
+    </main>
+
+    <div id="balanceTutorialModal" class="quiz-modal" role="dialog" aria-modal="true" aria-labelledby="balanceTutorialTitle" hidden>
+      <div class="quiz-modal-card tool-tutorial-modal-card">
+        <div class="tool-tutorial-head">
+          <h2 id="balanceTutorialTitle" data-i18n="balance.tutorialTitle">Tutorial?</h2>
+          <span class="tool-tutorial-badge" data-i18n="balance.tutorialBadge">Visual mode</span>
+        </div>
+        <ol class="tool-tutorial-steps">
+          <li data-i18n="balance.tutorialStep1">Enter an equation like 4x + 6 = 2x + 4 and click Visualize.</li>
+          <li data-i18n="balance.tutorialStep2">Watch the balance scale update step by step and move through the steps with the arrows.</li>
+          <li data-i18n="balance.tutorialStep3">Use the answer bank to choose the correct result when the tool asks for the final answer.</li>
+        </ol>
+        <p class="tool-tutorial-tip" data-i18n="balance.tutorialTip">Best for: understanding why both sides of an equation must stay balanced.</p>
+        <div class="quiz-modal-actions">
+          <button id="balanceTutorialCloseBtn" class="btn" type="button" data-i18n="common.close">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="site-footer-mount"></div>
+    <script src="logic.js"></script>
+    <script src="recent-history.js"></script>
+    <script src="balance.js"></script>
+    <script src="Menu/menu.js"></script>
+  </body>
+</html>

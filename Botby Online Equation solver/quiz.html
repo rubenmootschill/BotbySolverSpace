@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DGXLEB1TMQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DGXLEB1TMQ');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solver Space - Quiz</title>
+    <link rel="icon" type="image/png" href="Images/Botby-Solver-new.png" />
+    <link rel="apple-touch-icon" href="Images/Botby-Solver-new.png" />
+    <meta
+      name="description"
+      content="Free math equation quiz for students. Practice linear and quadratic equations with multiple-choice questions and instant feedback. No account needed."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="math quiz, algebra quiz, equation practice, multiple choice math, equation questions" />
+    <meta name="author" content="Solver Space" />
+    <meta name="google-site-verification" content="gnB32lRELapH9wbnaeBR0kkK2VdwFvR56YDamgLoBy8" />
+    <link rel="canonical" href="https://solverspace.netlify.app/quiz.html" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Solver Space" />
+    <meta property="og:title" content="Equation Quiz - Solver Space" />
+    <meta property="og:description" content="Generate quiz choices and train your equation skills quickly." />
+    <meta property="og:url" content="https://solverspace.netlify.app/quiz.html" />
+    <meta property="og:image" content="https://solverspace.netlify.app/Images/Botby-Solver-new.png" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Equation Quiz - Solver Space" />
+    <meta name="twitter:description" content="Train with equation quiz questions and instant feedback." />
+    <meta name="twitter:image" content="https://solverspace.netlify.app/Images/Botby-Solver-new.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="Menu/i18n.js"></script>
+  </head>
+  <body>
+    <div id="site-header-mount"></div>
+    <div class="bg-shape bg-shape-1" aria-hidden="true"></div>
+    <div class="bg-shape bg-shape-2" aria-hidden="true"></div>
+
+    <main class="app-shell">
+      <header class="hero">
+        <p class="eyebrow" data-i18n="quiz.eyebrow">Page 2</p>
+        <h1 data-i18n="quiz.h1">Equation Quiz</h1>
+        <button id="quizTutorialBtn" class="tool-tutorial-text-btn" type="button" data-i18n="quiz.tutorialTitle">Tutorial?</button>
+      </header>
+
+      <section class="panel quiz-panel" aria-labelledby="quiz-title">
+        <h2 id="quiz-title" class="sr-only" data-i18n="quiz.panelH2">Generate Quiz Answers</h2>
+
+        <div class="quiz-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="quizProgressBar">
+          <span id="quizProgressFill" class="quiz-progress-fill"></span>
+        </div>
+        <div id="quizScoreRow" class="quiz-score-row" aria-live="polite" hidden>
+          <span id="quizCorrectCount" class="quiz-score-correct">✓ 0</span>
+          <span id="quizWrongCount" class="quiz-score-wrong">✗ 0</span>
+        </div>
+
+        <h3 class="quiz-answer-title" data-i18n="quiz.answerTitle">Answer This</h3>
+
+        <div class="input-row quiz-input-row">
+          <label for="equationInput" data-i18n="quiz.label">Input equation</label>
+          <input
+            id="equationInput"
+            type="text"
+            placeholder="x + 3 = 10"
+            data-i18n-placeholder="quiz.placeholder"
+            autocomplete="off"
+          />
+        </div>
+
+        <div id="quizQuestion" class="quiz-question" data-i18n="quiz.noQuizYet">No quiz generated yet.</div>
+        <div id="quizChoices" class="quiz-choices" aria-live="polite"></div>
+
+        <div class="button-row quiz-answer-row">
+          <button id="quizBtn" class="btn quiz-answer-btn" type="button" data-i18n="quiz.answerBtn">
+            Answer
+          </button>
+        </div>
+
+        <p id="quizFeedback" class="message" role="status" aria-live="polite"></p>
+      </section>
+
+    </main>
+
+    <div id="quizTutorialModal" class="quiz-modal" role="dialog" aria-modal="true" aria-labelledby="quizTutorialTitle" hidden>
+      <div class="quiz-modal-card tool-tutorial-modal-card">
+        <div class="tool-tutorial-head">
+          <h2 id="quizTutorialTitle" data-i18n="quiz.tutorialTitle">Tutorial?</h2>
+          <span class="tool-tutorial-badge" data-i18n="quiz.tutorialBadge">3 quick steps</span>
+        </div>
+        <ol class="tool-tutorial-steps">
+          <li data-i18n="quiz.tutorialStep1">Enter your own equation in the input field.</li>
+          <li data-i18n="quiz.tutorialStep2">Read the generated question and choose the answer you think is correct.</li>
+          <li data-i18n="quiz.tutorialStep3">Click Answer to check your choice and keep practicing.</li>
+        </ol>
+        <p class="tool-tutorial-tip" data-i18n="quiz.tutorialTip">Best for: self-testing with equations you choose yourself.</p>
+        <div class="quiz-modal-actions">
+          <button id="quizTutorialCloseBtn" class="btn" type="button" data-i18n="common.close">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="explanationModal" class="quiz-modal" role="dialog" aria-modal="true" aria-labelledby="explanationModalTitle" hidden>
+      <div class="quiz-modal-card">
+        <h2 id="explanationModalTitle" data-i18n="quiz.explainModalTitle">Need a quick explanation?</h2>
+        <p data-i18n="quiz.explainModalText">Do you want me to show an easy step-by-step way for this equation?</p>
+        <div class="quiz-modal-actions">
+          <button id="explanationYesBtn" class="btn" type="button" data-i18n="quiz.explainModalYes">Yes, Please</button>
+          <button id="explanationNoBtn" class="btn btn-ghost" type="button" data-i18n="quiz.explainModalNo">No, I will try again</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="logic.js"></script>
+    <script src="recent-history.js"></script>
+    <script src="quiz.js"></script>
+    <div id="site-footer-mount"></div>
+    <script src="Menu/menu.js"></script>
+  </body>
+</html>
