@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DGXLEB1TMQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DGXLEB1TMQ');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solver Space - Linear Worksheet</title>
+    <link rel="icon" type="image/png" href="Images/Botby-Solver-new.png" />
+    <link rel="apple-touch-icon" href="Images/Botby-Solver-new.png" />
+    <meta
+      name="description"
+      content="Solve one-variable linear equations step by step with our free online linear equation calculator. Perfect for grade 7-9 students and homework help."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="linear equation solver, solve for x, one-variable equations, algebra worksheet, linear algebra" />
+    <meta name="author" content="Solver Space" />
+    <meta name="google-site-verification" content="gnB32lRELapH9wbnaeBR0kkK2VdwFvR56YDamgLoBy8" />
+    <link rel="canonical" href="https://solverspace.netlify.app/linear.html" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Solver Space" />
+    <meta property="og:title" content="Linear Worksheet - Solver Space" />
+    <meta
+      property="og:description"
+      content="Solve one-variable linear equations with worksheet-style steps and instant checks."
+    />
+    <meta property="og:url" content="https://solverspace.netlify.app/linear.html" />
+    <meta property="og:image" content="https://solverspace.netlify.app/Images/Botby-Solver-new.png" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Linear Worksheet - Solver Space" />
+    <meta
+      name="twitter:description"
+      content="Practice linear equations using an easy worksheet layout in Solver Space."
+    />
+    <meta name="twitter:image" content="https://solverspace.netlify.app/Images/Botby-Solver-new.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="Menu/i18n.js"></script>
+  </head>
+  <body>
+    <div id="site-header-mount"></div>
+    <div class="bg-shape bg-shape-1" aria-hidden="true"></div>
+    <div class="bg-shape bg-shape-2" aria-hidden="true"></div>
+
+    <main class="app-shell">
+      <header class="hero">
+        <p class="eyebrow" data-i18n="linear.eyebrow">Page 3</p>
+        <h1 data-i18n="linear.h1">Linear Equation Solver</h1>
+        <p class="subtitle" data-i18n="linear.subtitle">
+          Type a one-variable linear equation and get the answer instantly.
+        </p>
+        <button id="linearTutorialBtn" class="tool-tutorial-text-btn" type="button" data-i18n="linear.tutorialTitle">Tutorial?</button>
+      </header>
+
+      <section class="panel" aria-labelledby="linear-title">
+        <h2 id="linear-title" data-i18n="linear.panelH2">Solve linear equation</h2>
+        <p class="help" data-i18n="linear.help">
+          Example from worksheet: (x + 2) / 6 = 3
+        </p>
+
+        <div class="input-row linear-sheet-input">
+          <label for="linearLeftInput" data-i18n="linear.label">Input equation</label>
+
+          <div class="linear-sheet-row" data-equation-row="1">
+            <input
+              id="linearLeftInput"
+              class="linear-line-input"
+              data-side="left"
+              type="text"
+              placeholder="(x + 2) / 6"
+              data-i18n-placeholder="linear.placeholderLeft"
+              autocomplete="off"
+            />
+            <span class="linear-equals">=</span>
+            <input
+              id="linearRightInput"
+              class="linear-line-input"
+              data-side="right"
+              type="text"
+              placeholder="3"
+              data-i18n-placeholder="linear.placeholderRight"
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="linear-sheet-row" data-equation-row="2">
+            <input
+              class="linear-line-input"
+              data-side="left"
+              type="text"
+              autocomplete="off"
+              aria-label="Left side equation line 2"
+            />
+            <span class="linear-equals">=</span>
+            <input
+              class="linear-line-input"
+              data-side="right"
+              type="text"
+              autocomplete="off"
+              aria-label="Right side equation line 2"
+            />
+          </div>
+
+          <div class="linear-sheet-row" data-equation-row="3">
+            <input
+              class="linear-line-input"
+              data-side="left"
+              type="text"
+              autocomplete="off"
+              aria-label="Left side equation line 3"
+            />
+            <span class="linear-equals">=</span>
+            <input
+              class="linear-line-input"
+              data-side="right"
+              type="text"
+              autocomplete="off"
+              aria-label="Right side equation line 3"
+            />
+          </div>
+        </div>
+
+        <p id="linearMessage" class="message" role="status" aria-live="polite"></p>
+
+        <div class="button-row button-row-explain">
+          <button id="linearExplainBtn" class="btn btn-secondary" type="button" hidden data-i18n="linear.explainBtn">Explain?</button>
+        </div>
+
+        <div class="button-row">
+          <button id="linearSolveBtn" class="btn btn-block btn-block-style" type="button" data-i18n="linear.solveBtn">Solve</button>
+        </div>
+
+        <div id="linearExplainBox" class="explain-box" aria-live="polite"></div>
+      </section>
+
+    </main>
+
+    <div id="linearTutorialModal" class="quiz-modal" role="dialog" aria-modal="true" aria-labelledby="linearTutorialTitle" hidden>
+      <div class="quiz-modal-card tool-tutorial-modal-card">
+        <div class="tool-tutorial-head">
+          <h2 id="linearTutorialTitle" data-i18n="linear.tutorialTitle">Tutorial?</h2>
+          <span class="tool-tutorial-badge" data-i18n="linear.tutorialBadge">Worksheet mode</span>
+        </div>
+        <ol class="tool-tutorial-steps">
+          <li data-i18n="linear.tutorialStep1">Type the left and right side of the linear equation on the first worksheet row.</li>
+          <li data-i18n="linear.tutorialStep2">Use the extra rows to copy your own solving steps if you want to work it out by hand.</li>
+          <li data-i18n="linear.tutorialStep3">Click Solve to check the result and open the explanation if needed.</li>
+        </ol>
+        <p class="tool-tutorial-tip" data-i18n="linear.tutorialTip">Best for: classroom worksheet practice and showing each algebra step clearly.</p>
+        <div class="quiz-modal-actions">
+          <button id="linearTutorialCloseBtn" class="btn" type="button" data-i18n="common.close">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="logic.js"></script>
+    <script src="recent-history.js"></script>
+    <script src="linear.js"></script>
+    <div id="site-footer-mount"></div>
+    <script src="Menu/menu.js"></script>
+  </body>
+</html>

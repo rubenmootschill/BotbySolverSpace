@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solver Space - Teacher Dashboard</title>
+    <link rel="icon" type="image/png" href="../../Images/Botby-Solver-new.png" />
+    <link rel="apple-touch-icon" href="../../Images/Botby-Solver-new.png" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="author" content="Solver Space" />
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app-shell teacher-dashboard-page">
+      <section class="hero teacher-dashboard-hero" aria-labelledby="teacherDashTitle">
+        <p class="eyebrow">Teacher</p>
+        <h1 id="teacherDashTitle">Teacher Dashboard</h1>
+        <p class="subtitle">View student attempts, right/wrong totals, and per-equation progress.</p>
+        <p><a class="teacher-back-link" href="../../index.html">Back to Solver Space</a></p>
+      </section>
+
+      <section id="teacherLoginPanel" class="panel teacher-login-panel" aria-label="Teacher login">
+        <h2>Teacher Access</h2>
+        <p>Enter the teacher PIN to view student history.</p>
+        <div class="input-row">
+          <label for="teacherPinInput">Teacher PIN</label>
+          <input id="teacherPinInput" type="password" autocomplete="off" />
+        </div>
+        <div class="button-row">
+          <button id="teacherPinBtn" class="btn btn-primary" type="button">Open Dashboard</button>
+        </div>
+        <p id="teacherPinMsg" class="message" role="status" aria-live="polite"></p>
+      </section>
+
+      <section id="teacherDashContent" class="panel teacher-dashboard-content" hidden>
+        <div class="teacher-dash-toolbar">
+          <div class="input-row teacher-source-filter-row">
+            <label for="teacherSourceFilter">Source filter</label>
+            <select id="teacherSourceFilter" class="premade-topic-select">
+              <option value="all">All Sources</option>
+              <option value="balance">Balance</option>
+              <option value="quiz">Quiz</option>
+              <option value="testme">Test Me</option>
+              <option value="linear">Linear</option>
+              <option value="solver">Solver</option>
+                          <option value="quadratic">Quadratic</option>
+                          <option value="fraction">Fractions</option>
+                          <option value="percentage">Percentage</option>
+            </select>
+          </div>
+          <button id="teacherLogoutBtn" class="btn btn-ghost" type="button">Lock</button>
+          <button id="teacherClearBtn" class="btn btn-danger" type="button">Clear All Data</button>
+        </div>
+
+        <div id="teacherHistorySummary" class="teacher-history-summary"></div>
+
+        <h3 class="teacher-history-subtitle">Recent Attempts</h3>
+        <div id="teacherHistoryAttempts" class="teacher-history-scroll"></div>
+
+        <h3 class="teacher-history-subtitle">Per Equation Stats</h3>
+        <div id="teacherHistoryEquations" class="teacher-history-scroll"></div>
+      </section>
+    </main>
+
+    <div id="teacherClearModal" class="quiz-modal" role="dialog" aria-modal="true" aria-labelledby="teacherClearModalTitle" hidden>
+      <div class="quiz-modal-card">
+        <h2 id="teacherClearModalTitle">Confirm Clear</h2>
+        <p>Enter your teacher PIN to clear all Solver Space data from this browser. This cannot be undone.</p>
+        <div class="input-row">
+          <label for="teacherClearPinInput">Teacher PIN</label>
+          <input id="teacherClearPinInput" type="password" autocomplete="off" />
+        </div>
+        <p id="teacherClearPinMsg" class="message" role="status" aria-live="polite"></p>
+        <div class="quiz-modal-actions">
+          <button id="teacherClearConfirmBtn" class="btn btn-danger" type="button">Clear All Data</button>
+          <button id="teacherClearCancelBtn" class="btn btn-ghost" type="button">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../recent-history.js"></script>
+    <script src="dashboard.js"></script>
+  </body>
+</html>

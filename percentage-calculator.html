@@ -1,0 +1,222 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DGXLEB1TMQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DGXLEB1TMQ');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Percentage Calculator – Find %, Percentage of a Number & Percent Change | Solver Space</title>
+    <link rel="icon" type="image/png" href="Images/Botby-Solver-new.png" />
+    <link rel="apple-touch-icon" href="Images/Botby-Solver-new.png" />
+    <meta
+      name="description"
+      content="Free percentage calculator online. Find what % of a number is, what percentage one number is of another, and calculate percentage increase or decrease."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="percentage calculator, percent of number, percentage change, percent increase, percent decrease" />
+    <meta name="author" content="Solver Space" />
+    <meta name="google-site-verification" content="gnB32lRELapH9wbnaeBR0kkK2VdwFvR56YDamgLoBy8" />
+    <link rel="canonical" href="https://solverspace.netlify.app/percentage-calculator.html" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Solver Space" />
+    <meta property="og:title" content="Percentage Calculator – Free Online Tool | Solver Space" />
+    <meta property="og:description" content="Calculate percentages instantly. Find X% of Y, what % X is of Y, and percentage change." />
+    <meta property="og:url" content="https://solverspace.netlify.app/percentage-calculator.html" />
+    <meta property="og:image" content="https://solverspace.netlify.app/Images/Botby-Solver-new.png" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Percentage Calculator – Free Online Tool | Solver Space" />
+    <meta name="twitter:description" content="Find percentages, percent of numbers, and percentage change instantly." />
+    <meta name="twitter:image" content="https://solverspace.netlify.app/Images/Botby-Solver-new.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="Menu/i18n.js"></script>
+  </head>
+  <body>
+    <div id="site-header-mount"></div>
+    <div class="bg-shape bg-shape-1" aria-hidden="true"></div>
+    <div class="bg-shape bg-shape-2" aria-hidden="true"></div>
+
+    <main class="app-shell">
+      <header class="hero">
+        <p class="eyebrow">Calculator</p>
+        <h1>Percentage Calculator</h1>
+        <p class="subtitle">Find percentages, calculate what % of a number is, or figure out percentage change between two values.</p>
+      </header>
+
+      <!-- Mode 1: X% of Y -->
+      <section class="panel" aria-labelledby="pct-mode1-title">
+        <h2 id="pct-mode1-title">What is X% of Y?</h2>
+        <p class="help">Example: What is 20% of 150? â†’ 30</p>
+        <div style="display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap;margin-bottom:1rem;">
+          <div>
+            <label for="pct1P">Percentage (%)</label>
+            <input id="pct1P" type="number" value="20" step="any" style="width:7rem;" autocomplete="off" />
+          </div>
+          <span style="font-size:1.1rem;padding-top:1.4rem;">% of</span>
+          <div>
+            <label for="pct1N">Number</label>
+            <input id="pct1N" type="number" value="150" step="any" style="width:7rem;" autocomplete="off" />
+          </div>
+        </div>
+        <div class="button-row">
+          <button id="pct1Btn" class="btn btn-block btn-block-style" type="button">Calculate</button>
+        </div>
+        <div id="pct1Result" class="explain-box" aria-live="polite"></div>
+      </section>
+
+      <!-- Mode 2: X is what % of Y -->
+      <section class="panel" aria-labelledby="pct-mode2-title">
+        <h2 id="pct-mode2-title">X is what % of Y?</h2>
+        <p class="help">Example: 30 is what % of 150? â†’ 20%</p>
+        <div style="display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap;margin-bottom:1rem;">
+          <div>
+            <label for="pct2X">Number (X)</label>
+            <input id="pct2X" type="number" value="30" step="any" style="width:7rem;" autocomplete="off" />
+          </div>
+          <span style="font-size:1.1rem;padding-top:1.4rem;">is what % of</span>
+          <div>
+            <label for="pct2Y">Total (Y)</label>
+            <input id="pct2Y" type="number" value="150" step="any" style="width:7rem;" autocomplete="off" />
+          </div>
+        </div>
+        <div class="button-row">
+          <button id="pct2Btn" class="btn btn-block btn-block-style" type="button">Calculate</button>
+        </div>
+        <div id="pct2Result" class="explain-box" aria-live="polite"></div>
+      </section>
+
+      <!-- Mode 3: Percentage change -->
+      <section class="panel" aria-labelledby="pct-mode3-title">
+        <h2 id="pct-mode3-title">Percentage Increase / Decrease</h2>
+        <p class="help">Example: from 80 to 100 â†’ 25% increase</p>
+        <div style="display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap;margin-bottom:1rem;">
+          <div>
+            <label for="pct3From">From (original value)</label>
+            <input id="pct3From" type="number" value="80" step="any" style="width:7rem;" autocomplete="off" />
+          </div>
+          <span style="font-size:1.1rem;padding-top:1.4rem;">â†’</span>
+          <div>
+            <label for="pct3To">To (new value)</label>
+            <input id="pct3To" type="number" value="100" step="any" style="width:7rem;" autocomplete="off" />
+          </div>
+        </div>
+        <div class="button-row">
+          <button id="pct3Btn" class="btn btn-block btn-block-style" type="button">Calculate</button>
+        </div>
+        <div id="pct3Result" class="explain-box" aria-live="polite"></div>
+      </section>
+
+      <section class="panel seo-info-section" aria-label="About this tool">
+        <h2>How to Calculate Percentages</h2>
+        <p>The word <strong>percent</strong> means "per hundred." Percentages are used everywhere: discounts, test scores, tax, tips, and data analysis.</p>
+        <ul style="margin:0.5rem 0 0.5rem 1.2rem;line-height:1.8;">
+          <li><strong>X% of Y:</strong> Multiply Y Ã— (X Ã· 100). Example: 20% of 150 = 150 Ã— 0.20 = 30.</li>
+          <li><strong>X is what % of Y:</strong> Divide X Ã· Y Ã— 100. Example: 30 Ã· 150 Ã— 100 = 20%.</li>
+          <li><strong>Percentage change:</strong> (New âˆ’ Old) Ã· Old Ã— 100. Positive = increase, negative = decrease.</li>
+        </ul>
+        <p><strong>Common searches:</strong> percentage calculator, how to calculate percent, percent of a number, percentage increase calculator, percent change formula.</p>
+      </section>
+    </main>
+
+    <script>
+      function fmt(n) { return Math.round(n * 1e8) / 1e8; }
+
+      document.getElementById('pct1Btn').addEventListener('click', function () {
+        const p = parseFloat(document.getElementById('pct1P').value);
+        const n = parseFloat(document.getElementById('pct1N').value);
+        const box = document.getElementById('pct1Result');
+        if (isNaN(p) || isNaN(n)) { box.innerHTML = '<span style="color:var(--danger)">Enter valid numbers.</span>'; return; }
+        const ans = fmt(n * p / 100);
+        box.innerHTML = fmt(p) + '% of ' + fmt(n) + '<br>'
+          + '= ' + fmt(n) + ' x (' + fmt(p) + ' / 100)<br>'
+          + '= ' + fmt(n) + ' x ' + fmt(p / 100) + '<br>'
+          + '<strong>= ' + ans + '</strong>';
+        box.classList.add('is-visible');
+        if (window.BotbyRecentHistory) {
+          BotbyRecentHistory.add({
+            kind: 'solver',
+            equation: String(p) + '% of ' + String(n),
+            resultType: 'one',
+            value: ans,
+            href: 'percentage-calculator.html',
+            savedAt: Date.now()
+          });
+        }
+        if (window.BotbyRecentHistory) {
+          BotbyRecentHistory.addPracticeAttempt({ equation: String(p) + '% of ' + String(n), source: 'percentage', resultType: 'none', wasCorrect: null, createdAt: Date.now() });
+        }
+      });
+
+      document.getElementById('pct2Btn').addEventListener('click', function () {
+        const x = parseFloat(document.getElementById('pct2X').value);
+        const y = parseFloat(document.getElementById('pct2Y').value);
+        const box = document.getElementById('pct2Result');
+        if (isNaN(x) || isNaN(y)) { box.innerHTML = '<span style="color:var(--danger)">Enter valid numbers.</span>'; return; }
+        if (y === 0) { box.innerHTML = '<span style="color:var(--danger)">Y cannot be 0.</span>'; return; }
+        const ans = fmt(x / y * 100);
+        box.innerHTML = fmt(x) + ' / ' + fmt(y) + ' x 100<br>'
+          + '= ' + fmt(x / y) + ' x 100<br>'
+          + '<strong>= ' + ans + '%</strong>';
+        box.classList.add('is-visible');
+        if (window.BotbyRecentHistory) {
+          BotbyRecentHistory.add({
+            kind: 'solver',
+            equation: String(x) + ' is what % of ' + String(y),
+            resultType: 'one',
+            value: ans,
+            href: 'percentage-calculator.html',
+            savedAt: Date.now()
+          });
+        }
+        if (window.BotbyRecentHistory) {
+          BotbyRecentHistory.addPracticeAttempt({ equation: String(x) + ' is what % of ' + String(y), source: 'percentage', resultType: 'none', wasCorrect: null, createdAt: Date.now() });
+        }
+      });
+
+      document.getElementById('pct3Btn').addEventListener('click', function () {
+        const from = parseFloat(document.getElementById('pct3From').value);
+        const to = parseFloat(document.getElementById('pct3To').value);
+        const box = document.getElementById('pct3Result');
+        if (isNaN(from) || isNaN(to)) { box.innerHTML = '<span style="color:var(--danger)">Enter valid numbers.</span>'; return; }
+        if (from === 0) { box.innerHTML = '<span style="color:var(--danger)">Original value cannot be 0.</span>'; return; }
+        const change = to - from;
+        const pct = fmt(change / from * 100);
+        const direction = change >= 0 ? 'increase' : 'decrease';
+        box.innerHTML = 'Change: ' + fmt(to) + ' - ' + fmt(from) + ' = ' + fmt(change) + '<br>'
+          + 'Percentage change: (' + fmt(change) + ' / ' + fmt(from) + ') x 100<br>'
+          + '<strong>= ' + Math.abs(pct) + '% ' + direction + '</strong>';
+        box.classList.add('is-visible');
+        if (window.BotbyRecentHistory) {
+          BotbyRecentHistory.add({
+            kind: 'solver',
+            equation: 'change from ' + String(from) + ' to ' + String(to),
+            resultType: 'one',
+            value: pct,
+            href: 'percentage-calculator.html',
+            savedAt: Date.now()
+          });
+        }
+        if (window.BotbyRecentHistory) {
+          BotbyRecentHistory.addPracticeAttempt({ equation: 'change from ' + String(from) + ' to ' + String(to), source: 'percentage', resultType: 'none', wasCorrect: null, createdAt: Date.now() });
+        }
+      });
+    </script>
+
+    <div id="site-footer-mount"></div>
+    <script src="recent-history.js"></script>
+    <script src="Menu/menu.js"></script>
+  </body>
+</html>
